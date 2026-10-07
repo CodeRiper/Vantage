@@ -1,0 +1,43 @@
+# Binaries and Electron runtimes
+*.exe
+*.dll
+*.pak
+*.bin
+*.dat
+*.html.license
+LICENSES.chromium.html
+vk_swiftshader_icd.json
+locales/
+
+# Releases manual upload folder
+releases-*/
+releases/
+
+# Build & distribution output directories
+dist-windows/
+dist-android/
+dist-linux/
+android/build/
+
+# Android signing keys & secrets
+*.keystore
+*.jks
+.env
+
+# Node.js & dependencies
+node_modules/
+npm-debug.log*
+
+# Python caches & temp test files
+__pycache__/
+*.pyc
+scripts/inner_code.js
+scripts/temp_code.js
+scripts/temp_runner.js
+scripts/test_candidate.js
+scripts/*.txt
+
+# Operating System files
+Thumbs.db
+Desktop.ini
+.DS_Store

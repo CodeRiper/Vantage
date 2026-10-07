@@ -1,0 +1,9 @@
+{
+  "name": "vantage",
+  "productName": "Vantage",
+  "version": "1.2.7",
+  "description": "Observation, investigation-board, and influence/negotiation trainer with plan automation",
+  "main": "main.js",
+  "author": "Akash",
+  "private": true
+}
