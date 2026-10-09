@@ -95,44 +95,46 @@ h1,h2,h3{font-family:var(--font-display);font-weight:600;}
 
 /* ============ BUTTONS / INPUTS ============ */
 .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;border:1px solid var(--border-strong);
-  background:var(--bg-panel-2);color:var(--text);font-weight:600;font-size:13.5px;transition:transform .1s,border-color .15s,background .15s;}
-.btn:hover{border-color:var(--amber);}
-.btn:active{transform:scale(.98);}
-.btn-primary{background:var(--amber);border-color:var(--amber);color:#211603;}
-.btn-primary:hover{filter:brightness(1.07);border-color:var(--amber);}
-.btn-teal{background:var(--teal);border-color:var(--teal);color:#04211d;}
-.btn-teal:hover{filter:brightness(1.07);}
+  background:var(--bg-panel-2);color:var(--text);font-weight:600;font-size:13.5px;cursor:pointer;
+  transition:transform .18s cubic-bezier(0.16,1,0.3,1),border-color .18s ease,background .18s ease,box-shadow .18s ease,filter .18s ease;}
+.btn:hover{border-color:var(--amber);box-shadow:0 3px 10px rgba(0,0,0,.14);transform:translateY(-1px);}
+.btn:active{transform:scale(.97) translateY(0);}
+.btn-primary{background:var(--amber);border-color:var(--amber);color:#211603;box-shadow:0 2px 8px rgba(245,158,11,.22);}
+.btn-primary:hover{filter:brightness(1.08);box-shadow:0 4px 16px rgba(245,158,11,.32);border-color:var(--amber);transform:translateY(-1px);}
+.btn-teal{background:var(--teal);border-color:var(--teal);color:#04211d;box-shadow:0 2px 8px rgba(79,189,176,.22);}
+.btn-teal:hover{filter:brightness(1.08);box-shadow:0 4px 16px rgba(79,189,176,.32);transform:translateY(-1px);}
 .btn-ghost{background:transparent;border-color:transparent;}
 .btn-ghost:hover{background:var(--bg-hover);}
 .btn-danger{border-color:var(--coral);color:var(--coral);background:transparent;}
 .btn-danger:hover{background:var(--coral-soft);}
 .btn-sm{padding:6px 11px;font-size:12.5px;border-radius:8px;}
 .btn-icon{padding:8px;border-radius:9px;line-height:1;}
-.btn:disabled{opacity:.45;cursor:not-allowed;transform:none;}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none !important;box-shadow:none !important;}
 .btn-row{display:flex;gap:10px;flex-wrap:wrap;}
 
 .field{display:flex;flex-direction:column;gap:6px;margin-bottom:15px;}
 .field label{font-size:11.5px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em;}
 .field .hint{font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-faint);font-size:11.5px;}
 .input,.textarea,select.input{background:var(--bg-panel-2);border:1px solid var(--border);border-radius:10px;
-  padding:10px 12px;color:var(--text);width:100%;}
+  padding:10px 12px;color:var(--text);width:100%;transition:border-color .18s ease,box-shadow .18s ease;}
 .textarea{min-height:78px;resize:vertical;line-height:1.5;}
-.input:focus,.textarea:focus,select.input:focus{border-color:var(--amber);}
+.input:focus,.textarea:focus,select.input:focus{border-color:var(--amber);box-shadow:0 0 0 2px var(--amber-soft);}
 .input::placeholder,.textarea::placeholder{color:var(--text-faint);}
 .hint{font-size:12px;color:var(--text-faint);}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 @media(max-width:640px){.row2{grid-template-columns:1fr;}}
 
 /* ============ CARDS / CHIPS ============ */
-.card{background:var(--bg-panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px;}
+.card{background:var(--bg-panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px;transition:background-color .24s ease,border-color .24s ease;}
 .card-title{font-size:16px;font-weight:600;margin-bottom:3px;}
 .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:24px;}
-.stat-card{background:var(--bg-panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;}
+.stat-card{background:var(--bg-panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;transition:transform .2s cubic-bezier(0.16,1,0.3,1),box-shadow .2s cubic-bezier(0.16,1,0.3,1);}
+.stat-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.15);}
 .stat-card .num{font-family:var(--font-display);font-size:28px;font-weight:600;line-height:1;}
 .stat-card .lbl{font-size:12px;color:var(--text-muted);margin-top:6px;}
 .chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--bg-panel-2);
-  border:1px solid var(--border);font-size:12px;cursor:pointer;transition:.15s;}
-.chip:hover{border-color:var(--amber);}
+  border:1px solid var(--border);font-size:12px;cursor:pointer;transition:all .18s cubic-bezier(0.16,1,0.3,1);}
+.chip:hover{border-color:var(--amber);transform:translateY(-1px);}
 .chip.active{background:var(--amber-soft);border-color:var(--amber);color:var(--amber);}
 .badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:700;}
 .badge-fact{background:var(--teal-soft);color:var(--teal);}
@@ -144,11 +146,11 @@ h1,h2,h3{font-family:var(--font-display);font-weight:600;}
 .empty-state p{font-size:13px;max-width:340px;margin:0 auto 14px;}
 
 /* ============ MODAL / TOAST ============ */
-.modal-backdrop{position:fixed;inset:0;background:rgba(8,9,12,.55);display:flex;align-items:center;justify-content:center;
-  padding:22px;z-index:1000 !important;opacity:0;pointer-events:none;transition:opacity .18s ease;}
+.modal-backdrop{position:fixed;inset:0;background:rgba(8,9,12,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;
+  padding:22px;z-index:1000 !important;opacity:0;pointer-events:none;transition:opacity .22s cubic-bezier(0.16,1,0.3,1),backdrop-filter .22s ease;}
 .modal-backdrop.open{opacity:1;pointer-events:auto;}
 .modal{background:var(--bg-panel);border:1px solid var(--border-strong);border-radius:18px;max-width:640px;width:100%;
-  max-height:88vh;overflow-y:auto;padding:26px;transform:translateY(10px);transition:transform .18s ease;box-shadow:var(--shadow);}
+  max-height:88vh;overflow-y:auto;padding:26px;transform:translateY(14px) scale(0.98);transition:transform .24s cubic-bezier(0.16,1,0.3,1),box-shadow .24s ease;box-shadow:0 24px 60px -12px rgba(0,0,0,.45);}
 .modal.wide{max-width:820px;}
 .modal-backdrop.open .modal{transform:none;}
 .modal-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px;gap:12px;}
@@ -157,10 +159,10 @@ h1,h2,h3{font-family:var(--font-display);font-weight:600;}
 .np-ctx-item{display:flex;align-items:center;gap:8px;width:100%;background:transparent;color:var(--text);border:none;border-radius:8px;font-size:13px;cursor:pointer;text-align:left;transition:background .15s ease;padding:8px 12px;}
 .np-ctx-item:hover{background:var(--bg-hover);}
 .toast-stack{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;gap:8px;z-index:200;max-width:340px;pointer-events:none;}
-.toast{background:var(--bg-panel-2);border:1px solid var(--border-strong);border-left:3px solid var(--teal);padding:11px 15px;
-  border-radius:10px;font-size:13px;box-shadow:var(--shadow);animation:toastIn .2s ease;pointer-events:auto;}
+.toast{background:var(--bg-panel-2);border:1px solid var(--border-strong);border-left:3.5px solid var(--teal);padding:11px 15px;
+  border-radius:10px;font-size:13px;box-shadow:0 8px 24px -4px rgba(0,0,0,0.3);animation:toastIn .22s cubic-bezier(0.16,1,0.3,1);pointer-events:auto;transition:all .2s cubic-bezier(0.16,1,0.3,1);}
 .toast.error{border-left-color:var(--coral);}
-@keyframes toastIn{from{opacity:0;transform:translateX(14px);}to{opacity:1;transform:none;}}
+@keyframes toastIn{from{opacity:0;transform:translateX(18px) scale(0.96);}to{opacity:1;transform:none;}}
 
 /* ============ TEMPLATE / PUZZLE / TAB GRIDS ============ */
 .tpl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;}
@@ -312,60 +314,96 @@ h1,h2,h3{font-family:var(--font-display);font-weight:600;}
 .plan-board{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:start;}
 @media(max-width:900px){.plan-board{grid-template-columns:1fr 1fr;}}
 @media(max-width:560px){.plan-board{grid-template-columns:1fr;}}
-.plan-col{background:var(--bg-panel-2);border:1px solid var(--border);border-radius:var(--radius);padding:12px;min-height:120px;}
+.plan-col{background:var(--bg-panel-2);border:1px solid var(--border);border-radius:var(--radius);padding:12px;min-height:120px;
+  transition:background .2s cubic-bezier(0.16,1,0.3,1),outline .2s cubic-bezier(0.16,1,0.3,1),box-shadow .2s ease;}
 .plan-col-head{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--text-faint);margin-bottom:10px;}
-.plan-card{background:var(--bg-panel);border:1px solid var(--border);border-left:4px solid transparent;border-radius:10px;padding:11px 12px;margin-bottom:9px;cursor:pointer;transition:.15s;}
-.plan-card:hover{border-color:var(--amber);border-left-color:inherit;}
+.plan-card{background:var(--bg-panel);border:1px solid var(--border);border-left:4px solid transparent;border-radius:10px;padding:11px 12px;margin-bottom:9px;cursor:pointer;
+  transition:transform .22s cubic-bezier(0.16,1,0.3,1),box-shadow .22s cubic-bezier(0.16,1,0.3,1),border-color .18s ease,background-color .18s ease,opacity .2s ease;
+  will-change:transform,box-shadow;animation:itemSlideFade .24s cubic-bezier(0.16,1,0.3,1);}
+.plan-card:hover{border-color:var(--amber);border-left-color:inherit;transform:translateY(-2px);box-shadow:0 6px 18px -2px rgba(0,0,0,.22), 0 2px 6px -1px rgba(0,0,0,.15);}
+.plan-card:active{transform:translateY(0);}
 .plan-card .pc-top{display:flex;align-items:center;gap:6px;margin-bottom:5px;}
 .plan-card .pc-type{font-size:13px;}
 .plan-card .pc-key{font-size:10.5px;font-weight:700;color:var(--text-faint);font-family:var(--font-mono);}
-.plan-card .pc-title{font-size:13px;font-weight:600;margin-bottom:6px;}
+.plan-card .pc-title{font-size:13px;font-weight:600;margin-bottom:6px;transition:color .18s ease,text-decoration .18s ease;}
 .plan-card .pc-labels{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:6px;}
 .plan-card .pc-labels .chip{font-size:10px;padding:2px 7px;}
 .plan-card .pc-meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
 .pc-move{display:flex;justify-content:space-between;align-items:center;margin-top:9px;gap:6px;}
-.pc-move button{flex:1;padding:5px;border-radius:7px;border:1px solid var(--border);background:var(--bg-panel-2);font-size:12px;color:var(--text);cursor:pointer;transition:all .14s ease;}
-.pc-move button:hover{border-color:var(--amber);}
-.pc-move button:disabled{opacity:.3;cursor:not-allowed;}
-.pc-check-btn{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--border-strong);background:transparent;color:transparent;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;cursor:pointer;flex-shrink:0;padding:0;transition:all .15s ease;}
-.pc-check-btn:hover{border-color:var(--mint);color:var(--mint);background:var(--mint-soft);}
-.pc-check-btn.is-done, .plan-card.is-done .pc-check-btn{background:var(--mint);border-color:var(--mint);color:#04210f;}
-.pc-complete-btn{flex:2 !important;padding:5px 8px;border-radius:7px;border:1px solid var(--border);background:var(--bg-panel-2);color:var(--text);font-size:11px;font-weight:600;cursor:pointer;transition:all .15s ease;display:flex;align-items:center;justify-content:center;gap:4px;}
-.pc-complete-btn:hover{border-color:var(--mint);background:var(--mint-soft);color:var(--mint);}
+.pc-move button{flex:1;padding:5px;border-radius:7px;border:1px solid var(--border);background:var(--bg-panel-2);font-size:12px;color:var(--text);cursor:pointer;
+  transition:transform .18s cubic-bezier(0.16,1,0.3,1),background-color .18s ease,border-color .18s ease,box-shadow .18s ease,color .18s ease;}
+.pc-move button:hover:not(:disabled){border-color:var(--amber);transform:translateY(-1px);box-shadow:0 3px 8px rgba(0,0,0,.15);}
+.pc-move button:active:not(:disabled){transform:scale(0.93) translateY(0);}
+.pc-move button:disabled{opacity:.3;cursor:not-allowed;transform:none !important;box-shadow:none !important;}
+.pc-check-btn{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--border-strong);background:transparent;color:transparent;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;cursor:pointer;flex-shrink:0;padding:0;
+  transition:transform .2s cubic-bezier(0.34,1.56,0.64,1),background-color .18s ease,border-color .18s ease,color .18s ease;}
+.pc-check-btn:hover{border-color:var(--mint);color:var(--mint);background:var(--mint-soft);transform:scale(1.14);}
+.pc-check-btn:active{transform:scale(0.92);}
+.pc-check-btn.is-done, .plan-card.is-done .pc-check-btn{background:var(--mint);border-color:var(--mint);color:#04210f;animation:checkPop .32s cubic-bezier(0.34,1.56,0.64,1);}
+.pc-complete-btn{flex:2 !important;padding:5px 8px;border-radius:7px;border:1px solid var(--border);background:var(--bg-panel-2);color:var(--text);font-size:11px;font-weight:600;cursor:pointer;
+  transition:all .18s cubic-bezier(0.16,1,0.3,1) !important;display:flex;align-items:center;justify-content:center;gap:4px;}
+.pc-complete-btn:hover{border-color:var(--mint);background:var(--mint-soft);color:var(--mint);transform:translateY(-1px);box-shadow:0 3px 8px rgba(0,0,0,.15);}
+.pc-complete-btn:active{transform:scale(0.94) translateY(0);}
 .pc-complete-btn.is-done{border-color:var(--amber);background:var(--amber-soft);color:var(--amber);}
 .plan-card.is-done{opacity:.75;}
 .plan-card.is-done:hover{opacity:.95;}
 .plan-card.is-done .pc-title, tr.is-done .done-text{text-decoration:line-through;color:var(--text-faint);}
-.status-chip{cursor:pointer;border:1px solid var(--border);background:var(--bg-panel-2);border-radius:6px;padding:3px 8px;font-size:11.5px;font-weight:600;transition:all .15s ease;color:var(--text);}
-.status-chip:hover{border-color:var(--mint);color:var(--mint);}
+.status-chip{cursor:pointer;border:1px solid var(--border);background:var(--bg-panel-2);border-radius:6px;padding:3px 8px;font-size:11.5px;font-weight:600;
+  transition:all .18s cubic-bezier(0.16,1,0.3,1);color:var(--text);}
+.status-chip:hover{border-color:var(--mint);color:var(--mint);transform:translateY(-1px);}
 .status-chip.status-done{background:var(--mint-soft);border-color:var(--mint);color:var(--mint);}
-.prio-tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;}
+.prio-tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;
+  transition:transform .18s ease,filter .18s ease;}
+.prio-tag:hover{transform:scale(1.05);filter:brightness(1.08);}
 .prio-low{background:var(--teal-soft);color:var(--teal);}
 .prio-med{background:var(--amber-soft);color:var(--amber);}
 .prio-high{background:var(--coral-soft);color:var(--coral);}
+.plan-card[draggable="true"]{cursor:grab;user-select:none;}
+.plan-card[draggable="true"]:active{cursor:grabbing;}
+.plan-card.is-dragging{opacity:0.38 !important;transform:scale(0.97) rotate(0.4deg);cursor:grabbing !important;box-shadow:0 16px 36px rgba(0,0,0,0.45) !important;border-color:var(--amber,#f59e0b) !important;}
+.plan-col.drag-over{background:rgba(59,130,246,0.14) !important;outline:2px dashed var(--accent,#3b82f6) !important;outline-offset:-2px;box-shadow:inset 0 0 18px rgba(59,130,246,0.15);}
 .plan-table{width:100%;border-collapse:collapse;font-size:13px;}
 .plan-table th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--text-faint);padding:8px 10px;border-bottom:1px solid var(--border-strong);}
-.plan-table td{padding:10px;border-bottom:1px solid var(--border);vertical-align:top;}
-.plan-table tr{cursor:pointer;}
+.plan-table td{padding:10px;border-bottom:1px solid var(--border);vertical-align:top;transition:background-color .15s ease;}
+.plan-table tr{cursor:pointer;transition:background-color .15s ease;}
 .plan-table tr:hover td{background:var(--bg-hover);}
 .plan-table .key-cell{font-family:var(--font-mono);font-size:11px;color:var(--text-faint);white-space:nowrap;}
 .plan-type-pick{display:flex;gap:8px;flex-wrap:wrap;}
-.plan-type-pick button{flex:1;min-width:80px;padding:9px 6px;border-radius:10px;border:1.5px solid var(--border);background:var(--bg-panel-2);font-size:12px;text-align:center;}
+.plan-type-pick button{flex:1;min-width:80px;padding:9px 6px;border-radius:10px;border:1.5px solid var(--border);background:var(--bg-panel-2);font-size:12px;text-align:center;transition:all .18s ease;}
+.plan-type-pick button:hover{border-color:var(--amber);transform:translateY(-1px);}
 .plan-type-pick button.active{border-color:var(--amber);background:var(--amber-soft);color:var(--amber);font-weight:600;}
-.subtask-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);}
+.subtask-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);transition:background .15s ease;}
 .subtask-row input[type=checkbox]{width:16px;height:16px;flex-shrink:0;}
 .subtask-row span{flex:1;font-size:13px;}
 .subtask-row span.done{text-decoration:line-through;color:var(--text-faint);}
-.subtask-row button{background:none;border:none;color:var(--text-faint);font-size:13px;padding:2px 6px;}
+.subtask-row button{background:none;border:none;color:var(--text-faint);font-size:13px;padding:2px 6px;transition:color .15s ease;}
+.subtask-row button:hover{color:var(--coral);}
 .subtask-add-row{display:flex;gap:8px;margin-top:8px;}
 .subtask-add-row input{flex:1;}
 
 /* ============ TASKS ============ */
-.task-row{display:flex;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--bg-panel);}
+.task-row{display:flex;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--bg-panel);
+  transition:transform .2s cubic-bezier(0.16,1,0.3,1),box-shadow .2s cubic-bezier(0.16,1,0.3,1),border-color .18s ease,background .18s ease,opacity .2s ease;
+  will-change:transform,box-shadow;animation:itemSlideFade .22s cubic-bezier(0.16,1,0.3,1);}
+.task-row:hover{transform:translateY(-1.5px);box-shadow:0 4px 14px -2px rgba(0,0,0,.18);border-color:var(--border-strong);}
+.task-row.done{opacity:.72;}
+.task-row.done:hover{opacity:.95;}
 .task-row.done .task-text{text-decoration:line-through;color:var(--text-faint);}
-.task-check{width:19px;height:19px;border-radius:6px;border:1.5px solid var(--border-strong);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;}
-.task-row.done .task-check{background:var(--mint);border-color:var(--mint);color:#04210f;}
-.task-text{flex:1;font-size:13.5px;}
+.task-check{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--border-strong);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;cursor:pointer;
+  transition:transform .2s cubic-bezier(0.34,1.56,0.64,1),background-color .18s ease,border-color .18s ease;}
+.task-row:hover .task-check{border-color:var(--mint);transform:scale(1.08);}
+.task-row.done .task-check{background:var(--mint);border-color:var(--mint);color:#04210f;animation:checkPop .32s cubic-bezier(0.34,1.56,0.64,1);}
+.task-text{flex:1;font-size:13.5px;transition:color .18s ease,text-decoration .18s ease;}
+
+@keyframes checkPop{
+  0%{transform:scale(0.65);}
+  65%{transform:scale(1.22);}
+  100%{transform:scale(1);}
+}
+@keyframes itemSlideFade{
+  from{opacity:0;transform:translateY(6px);}
+  to{opacity:1;transform:translateY(0);}
+}
 
 /* ============ TIMER ============ */
 .timer-wrap{display:flex;flex-direction:column;align-items:center;gap:20px;padding:30px 20px;}
@@ -5643,9 +5681,9 @@ function planCardHtml(p, ci){
   const doneCount = subtasks.filter(s=>s.done).length;
   const isDone = p.status === 'done';
   return `
-    <div class="plan-card${isDone?' is-done':''}" data-action="plan-edit" data-id="${p.id}" style="border-left-color:${t.color};">
+    <div class="plan-card${isDone?' is-done':''}" draggable="true" data-action="plan-edit" data-id="${p.id}" data-status="${p.status}" style="border-left-color:${t.color};">
       <div class="pc-top">
-        <button class="pc-check-btn ${isDone?'is-done':''}" data-action="plan-toggle-done" data-id="${p.id}" title="${isDone?'Reopen item':'Mark done'}" onclick="event.stopPropagation()">${isDone?'✓':''}</button>
+        <button type="button" class="pc-check-btn ${isDone?'is-done':''}" data-action="plan-toggle-done" data-id="${p.id}" title="${isDone?'Reopen item':'Mark done'}">${isDone?'✓':''}</button>
         <span class="pc-type" title="${t.label}">${t.ic}</span>
         <span class="pc-key">${esc(p.key||'')}</span>
         <span class="prio-tag prio-${p.priority}">${PLAN_PRIO_ICONS[p.priority]} ${p.priority}</span>
@@ -5657,9 +5695,9 @@ function planCardHtml(p, ci){
         ${subtasks.length?`<span class="hint">☑️ ${doneCount}/${subtasks.length}</span>`:''}
       </div>
       <div class="pc-move">
-        <button data-action="plan-move" data-id="${p.id}" data-dir="-1" ${ci===0?'disabled':''} title="Move left" onclick="event.stopPropagation()">‹</button>
-        <button class="pc-complete-btn ${isDone?'is-done':''}" data-action="plan-toggle-done" data-id="${p.id}" title="${isDone?'Reopen item':'Mark as done'}" onclick="event.stopPropagation()">${isDone?'↺ Reopen':'✓ Complete'}</button>
-        <button data-action="plan-move" data-id="${p.id}" data-dir="1" ${ci===PLAN_STATUSES.length-1?'disabled':''} title="Move right" onclick="event.stopPropagation()">›</button>
+        <button type="button" data-action="plan-move" data-id="${p.id}" data-dir="-1" ${ci===0?'disabled':''} title="Move left">‹</button>
+        <button type="button" class="pc-complete-btn ${isDone?'is-done':''}" data-action="plan-toggle-done" data-id="${p.id}" title="${isDone?'Reopen item':'Mark as done'}">${isDone?'↺ Reopen':'✓ Complete'}</button>
+        <button type="button" data-action="plan-move" data-id="${p.id}" data-dir="1" ${ci===PLAN_STATUSES.length-1?'disabled':''} title="Move right">›</button>
       </div>
     </div>`;
 }
@@ -5831,19 +5869,26 @@ function movePlanItem(id, dir){
   Store.set('plan', State.plan);
   renderPlanView();
 }
-$('#planSearchInput').addEventListener('input', (e)=>{ planFilter.q = e.target.value; renderPlanView(); });
+let _planSearchTimer = null;
+$('#planSearchInput').addEventListener('input', (e)=>{
+  planFilter.q = e.target.value;
+  clearTimeout(_planSearchTimer);
+  _planSearchTimer = setTimeout(renderPlanView, 100);
+});
 $('#planStatusFilter').addEventListener('change', (e)=>{ planFilter.status = e.target.value; renderPlanView(); });
 $('#planTypeFilter').addEventListener('change', (e)=>{ planFilter.type = e.target.value; renderPlanView(); });
 
 /* ================= TASKS ================= */
 function renderTasks(){
   const list = (Array.isArray(State.tasks) ? State.tasks : []).filter(t => taskFilter==='all' ? true : taskFilter==='active' ? !t.done : t.done);
-  $('#taskList').innerHTML = list.length ? list.map(t=>`
+  const container = $('#taskList');
+  if(!container) return;
+  container.innerHTML = list.length ? list.map(t=>`
     <div class="task-row ${t.done?'done':''}" data-id="${t.id}">
-      <button class="task-check" data-action="task-toggle" data-id="${t.id}" title="${t.done?'Mark active':'Mark done'}">${t.done?'✓':''}</button>
+      <button type="button" class="task-check" data-action="task-toggle" data-id="${t.id}" title="${t.done?'Mark active':'Mark done'}">${t.done?'✓':''}</button>
       <div class="task-text" data-action="task-toggle" data-id="${t.id}" style="cursor:pointer;flex:1;">${esc(t.text)}</div>
-      <button class="btn btn-icon btn-ghost btn-sm" data-action="task-edit" data-id="${t.id}" title="Edit task" style="opacity:0.7;margin-right:2px;">✏️</button>
-      <button class="btn btn-icon btn-ghost btn-sm" data-action="task-delete" data-id="${t.id}" title="Delete task">✕</button>
+      <button type="button" class="btn btn-icon btn-ghost btn-sm" data-action="task-edit" data-id="${t.id}" title="Edit task" style="opacity:0.7;margin-right:2px;">✏️</button>
+      <button type="button" class="btn btn-icon btn-ghost btn-sm" data-action="task-delete" data-id="${t.id}" title="Delete task">✕</button>
     </div>`).join('') : `<div class="empty-state"><div class="es-ic">✅</div><h3>Nothing here</h3><p>Add a task above to get started.</p></div>`;
 }
 function addTask(){
@@ -5855,7 +5900,9 @@ function addTask(){
   if(input) input.value='';
   renderTasks();
   Store.set('tasks', State.tasks);
+  toast('Task added');
   if(input && input.focus) input.focus();
+  if(typeof renderDashboard === 'function' && currentView === 'dashboard') renderDashboard();
 }
 
 /* ================= TIMER ================= */
@@ -5949,11 +5996,11 @@ function renderProfile(){
         <div class="field" style="margin:0;">
           <label>Completed Tasks Auto-Delete</label>
           <select class="input" id="cfgAutoDeleteTasks" data-action="save-retention-settings">
-            <option value="0" ${!p.autoDeleteTaskDays?'selected':''}>Never (Keep all)</option>
+            <option value="0" ${p.autoDeleteTaskDays===0?'selected':''}>Never (Keep all)</option>
             <option value="1" ${p.autoDeleteTaskDays==1?'selected':''}>After 1 day</option>
             <option value="7" ${p.autoDeleteTaskDays==7?'selected':''}>After 7 days</option>
             <option value="14" ${p.autoDeleteTaskDays==14?'selected':''}>After 14 days</option>
-            <option value="30" ${p.autoDeleteTaskDays==30?'selected':''}>After 30 days (Recommended)</option>
+            <option value="30" ${(p.autoDeleteTaskDays==30 || p.autoDeleteTaskDays===undefined)?'selected':''}>After 30 days (Recommended)</option>
             <option value="60" ${p.autoDeleteTaskDays==60?'selected':''}>After 60 days</option>
             <option value="90" ${p.autoDeleteTaskDays==90?'selected':''}>After 90 days</option>
           </select>
@@ -5961,11 +6008,11 @@ function renderProfile(){
         <div class="field" style="margin:0;">
           <label>Completed Plans Auto-Delete</label>
           <select class="input" id="cfgAutoDeletePlans" data-action="save-retention-settings">
-            <option value="0" ${!p.autoDeletePlanDays?'selected':''}>Never (Keep all)</option>
+            <option value="0" ${p.autoDeletePlanDays===0?'selected':''}>Never (Keep all)</option>
             <option value="1" ${p.autoDeletePlanDays==1?'selected':''}>After 1 day</option>
             <option value="7" ${p.autoDeletePlanDays==7?'selected':''}>After 7 days</option>
             <option value="14" ${p.autoDeletePlanDays==14?'selected':''}>After 14 days</option>
-            <option value="30" ${p.autoDeletePlanDays==30?'selected':''}>After 30 days (Recommended)</option>
+            <option value="30" ${(p.autoDeletePlanDays==30 || p.autoDeletePlanDays===undefined)?'selected':''}>After 30 days (Recommended)</option>
             <option value="60" ${p.autoDeletePlanDays==60?'selected':''}>After 60 days</option>
             <option value="90" ${p.autoDeletePlanDays==90?'selected':''}>After 90 days</option>
           </select>
@@ -6416,12 +6463,17 @@ const Actions = {
     const t = (State.tasks||[]).find(t=>t.id===el.dataset.id);
     if(t){
       t.done = !t.done;
-      if(t.done) t.completedAt = new Date().toISOString(); else delete t.completedAt;
+      if(t.done){
+        t.completedAt = new Date().toISOString();
+        toast('Task completed! 🎉');
+        setTimeout(() => sendAppNotification('🎉 Task Completed', t.text, 'tasks'), 10);
+      } else {
+        delete t.completedAt;
+        toast('Task active');
+      }
       renderTasks();
       Store.set('tasks', State.tasks);
-      if(t.done){
-        setTimeout(() => sendAppNotification('🎉 Task Completed', t.text, 'tasks'), 10);
-      }
+      if(typeof renderDashboard === 'function' && currentView === 'dashboard') renderDashboard();
     }
   },
   async 'task-edit'(el){
@@ -6433,12 +6485,15 @@ const Actions = {
       renderTasks();
       Store.set('tasks', State.tasks);
       toast('Task updated');
+      if(typeof renderDashboard === 'function' && currentView === 'dashboard') renderDashboard();
     }
   },
   'task-delete'(el){
     State.tasks = (State.tasks||[]).filter(t=>t.id!==el.dataset.id);
     renderTasks();
     Store.set('tasks', State.tasks);
+    toast('Task deleted');
+    if(typeof renderDashboard === 'function' && currentView === 'dashboard') renderDashboard();
   },
   'task-filter'(el){ taskFilter = el.dataset.filter; $$('[data-action="task-filter"]').forEach(b=>b.classList.toggle('active', b===el)); renderTasks(); },
   'timer-preset'(el){ setTimerPreset(Number(el.dataset.min)); },
@@ -6456,9 +6511,9 @@ const Actions = {
   'theme-set-light'(){ setTheme('light'); },
   'trigger-manual-cleanup'(){ autoDeleteExpired(true); },
   'save-retention-settings'(el){
-    if(!State.profile) State.profile = { theme: 'dark', autoDeleteTaskDays: 0, autoDeletePlanDays: 0 };
-    if(el.id==='cfgAutoDeleteTasks') State.profile.autoDeleteTaskDays = parseInt(el.value)||0;
-    if(el.id==='cfgAutoDeletePlans') State.profile.autoDeletePlanDays = parseInt(el.value)||0;
+    if(!State.profile) State.profile = { theme: 'dark', autoDeleteTaskDays: 30, autoDeletePlanDays: 30 };
+    if(el.id==='cfgAutoDeleteTasks') State.profile.autoDeleteTaskDays = isNaN(parseInt(el.value)) ? 30 : parseInt(el.value);
+    if(el.id==='cfgAutoDeletePlans') State.profile.autoDeletePlanDays = isNaN(parseInt(el.value)) ? 30 : parseInt(el.value);
     Store.set('profile', State.profile);
     toast('Retention policy updated.');
     autoDeleteExpired(false);
@@ -6624,13 +6679,13 @@ function vpSortPlan(items){
       return a.due < b.due ? -1 : a.due > b.due ? 1 : 0;
     });
   } else if(vpPlanSort === 'priority'){
-    arr.sort((a,b)=> prioOrder[a.priority] - prioOrder[b.priority]);
+    arr.sort((a,b)=> ((prioOrder[a.priority] ?? 1) - (prioOrder[b.priority] ?? 1)));
   } else if(vpPlanSort === 'created'){
     arr.sort((a,b)=> (b.createdAt||'').localeCompare(a.createdAt||''));
   } else if(vpPlanSort === 'activity'){
     arr.sort((a,b)=> (b.lastActivityAt||'').localeCompare(a.lastActivityAt||''));
   } else {
-    arr.sort((a,b)=> (statusOrder[a.status]-statusOrder[b.status]) || (prioOrder[a.priority]-prioOrder[b.priority]));
+    arr.sort((a,b)=> (((statusOrder[a.status] ?? 0) - (statusOrder[b.status] ?? 0)) || ((prioOrder[a.priority] ?? 1) - (prioOrder[b.priority] ?? 1))));
   }
   return arr;
 }
@@ -6653,15 +6708,15 @@ planCardHtml = function(p, ci){
   const checked = vpBulkSelected && vpBulkSelected.has(p.id);
   const isDone = p.status === 'done';
   return `
-    <div class="plan-card${vpIsStale(p)?' is-stale':''}${checked?' is-selected':''}${isDone?' is-done':''}" data-action="plan-edit" data-id="${p.id}" style="border-left-color:${t.color};">
+    <div class="plan-card${vpIsStale(p)?' is-stale':''}${checked?' is-selected':''}${isDone?' is-done':''}" draggable="true" data-action="plan-edit" data-id="${p.id}" data-status="${p.status}" style="border-left-color:${t.color};">
       <div class="pc-top">
         ${vpBulkMode ? `<input type="checkbox" class="pc-check" data-action="plan-bulk-check" data-id="${p.id}" ${checked?'checked':''}>` : ''}
-        <button class="pc-check-btn ${isDone?'is-done':''}" data-action="plan-toggle-done" data-id="${p.id}" title="${isDone?'Reopen item':'Mark done'}" onclick="event.stopPropagation()">${isDone?'✓':''}</button>
+        <button type="button" class="pc-check-btn ${isDone?'is-done':''}" data-action="plan-toggle-done" data-id="${p.id}" title="${isDone?'Reopen item':'Mark done'}">${isDone?'✓':''}</button>
         <span class="pc-type" title="${t.label}">${t.ic}</span>
         <span class="pc-key">${esc(p.key||'')}</span>
         ${p.automationId?'<span class="pc-auto" title="Created by an automation rule">🔁</span>':''}
         ${vpIsStale(p)?'<span class="pc-auto stale" title="No activity for a while — will auto-close">💤</span>':''}
-        <button class="prio-tag prio-${p.priority}" data-action="plan-cycle-priority" data-id="${p.id}" title="Click to change priority" onclick="event.stopPropagation()">${PLAN_PRIO_ICONS[p.priority]} ${p.priority}</button>
+        <button type="button" class="prio-tag prio-${p.priority}" data-action="plan-cycle-priority" data-id="${p.id}" title="Click to change priority">${PLAN_PRIO_ICONS[p.priority]} ${p.priority}</button>
       </div>
       <div class="pc-title ${isDone?'done-text':''}">${esc(p.title)}</div>
       ${labels.length ? `<div class="pc-labels">${labels.map(l=>`<span class="chip">${esc(l)}</span>`).join('')}</div>` : ''}
@@ -6671,9 +6726,9 @@ planCardHtml = function(p, ci){
         ${comments?`<span class="hint">💬 ${comments}</span>`:''}
       </div>
       <div class="pc-move">
-        <button data-action="plan-move" data-id="${p.id}" data-dir="-1" ${ci===0?'disabled':''} title="Move left" onclick="event.stopPropagation()">‹</button>
-        <button class="pc-complete-btn ${isDone?'is-done':''}" data-action="plan-toggle-done" data-id="${p.id}" title="${isDone?'Reopen item':'Mark as done'}" onclick="event.stopPropagation()">${isDone?'↺ Reopen':'✓ Complete'}</button>
-        <button data-action="plan-move" data-id="${p.id}" data-dir="1" ${ci===PLAN_STATUSES.length-1?'disabled':''} title="Move right" onclick="event.stopPropagation()">›</button>
+        <button type="button" data-action="plan-move" data-id="${p.id}" data-dir="-1" ${ci===0?'disabled':''} title="Move left">‹</button>
+        <button type="button" class="pc-complete-btn ${isDone?'is-done':''}" data-action="plan-toggle-done" data-id="${p.id}" title="${isDone?'Reopen item':'Mark as done'}">${isDone?'↺ Reopen':'✓ Complete'}</button>
+        <button type="button" data-action="plan-move" data-id="${p.id}" data-dir="1" ${ci===PLAN_STATUSES.length-1?'disabled':''} title="Move right">›</button>
       </div>
     </div>`;
 };
@@ -6698,7 +6753,7 @@ renderPlanBoard = function(items){
     const over = limit && colItems.length > limit;
     const isCollapsed = collapsed.indexOf(s.k) !== -1;
     const cards = colItems.map(p=>planCardHtml(p, ci)).join('');
-    return `<div class="plan-col${isCollapsed?' is-collapsed':''}${over?' is-over':''}">
+    return `<div class="plan-col${isCollapsed?' is-collapsed':''}${over?' is-over':''}" data-status="${s.k}">
       <div class="plan-col-head">
         <button class="col-collapse" data-action="plan-col-collapse" data-k="${s.k}" title="${isCollapsed?'Expand':'Collapse'}">${isCollapsed?'▸':'▾'}</button>
         <span class="col-title">${s.l}</span>
@@ -6735,15 +6790,15 @@ renderPlanTable = function(items){
     return `<tr data-action="plan-edit" data-id="${p.id}" class="${checked?'is-selected':''}${isDone?' is-done':''}">
       ${vpBulkMode ? `<td><input type="checkbox" class="pc-check" data-action="plan-bulk-check" data-id="${p.id}" ${checked?'checked':''}></td>` : ''}
       <td style="width:36px;text-align:center;">
-        <button class="pc-check-btn ${isDone?'is-done':''}" data-action="plan-toggle-done" data-id="${p.id}" title="${isDone?'Reopen item':'Mark done'}" onclick="event.stopPropagation()">${isDone?'✓':''}</button>
+        <button type="button" class="pc-check-btn ${isDone?'is-done':''}" data-action="plan-toggle-done" data-id="${p.id}" title="${isDone?'Reopen item':'Mark done'}">${isDone?'✓':''}</button>
       </td>
       <td class="key-cell">${esc(p.key||'')}${p.automationId?' <span title="From an automation rule">🔁</span>':''}</td>
       <td title="${t.label}">${t.ic}</td>
       <td class="${isDone?'done-text':''}">${esc(p.title)}${vpIsStale(p)?' <span class="chip stale-chip">stale</span>':''}</td>
       <td>
-        <button class="chip status-chip ${isDone?'status-done':''}" data-action="plan-toggle-done" data-id="${p.id}" title="Click to toggle Done/Active" onclick="event.stopPropagation()">${s?s.l:p.status}</button>
+        <button type="button" class="chip status-chip ${isDone?'status-done':''}" data-action="plan-toggle-done" data-id="${p.id}" title="Click to toggle Done/Active">${s?s.l:p.status}</button>
       </td>
-      <td><button class="prio-tag prio-${p.priority}" data-action="plan-cycle-priority" data-id="${p.id}" onclick="event.stopPropagation()">${PLAN_PRIO_ICONS[p.priority]} ${p.priority}</button></td>
+      <td><button type="button" class="prio-tag prio-${p.priority}" data-action="plan-cycle-priority" data-id="${p.id}">${PLAN_PRIO_ICONS[p.priority]} ${p.priority}</button></td>
       <td>${labels.length?labels.map(l=>`<span class="chip">${esc(l)}</span>`).join(' '):'—'}</td>
       <td>${p.due?`<span class="due-pill ${dueState||''}">${vpDueLabel(p.due, p.dueTime)}</span>`:'—'}</td>
       <td>${subtasks.length?`${doneCount}/${subtasks.length}`:'—'}</td>
@@ -6974,25 +7029,29 @@ savePlanItem = function(existingId){
 };
 
 movePlanItem = function(id, dir){
-  const p = vpEnsureItem(State.plan.find(p=>p.id===id)); if(!p) return;
+  const p = vpEnsureItem((State.plan||[]).find(p=>p.id===id)); if(!p) return;
   const idx = PLAN_STATUSES.findIndex(s=>s.k===p.status);
   const next = Math.min(PLAN_STATUSES.length-1, Math.max(0, idx+dir));
   if(next === idx) return;
   const from = PLAN_STATUSES[idx], to = PLAN_STATUSES[next];
   p.status = to.k;
   vpLog(p, 'status', `Moved from ${from.l} to ${to.l}.`);
-  if(vpIsStale(p)) p.labels = p.labels.filter(l=>l!=='stale');
+  if(vpIsStale(p)) p.labels = (p.labels||[]).filter(l=>l!=='stale');
   if(p.status === 'done'){
     p.prevStatus = from.k;
     p.resolution = 'done';
     p.completedAt = new Date().toISOString();
     vpOnItemCompleted(p);
+    toast('Moved to Done! 🎉');
+    setTimeout(() => sendAppNotification('🎉 Plan Item Completed', p.title, 'tasks'), 10);
   } else {
     p.resolution = null;
     p.completedAt = null;
+    toast(`Moved to ${to.l}.`);
   }
   Store.set('plan', State.plan);
   renderPlanView();
+  if(typeof renderDashboard === 'function' && currentView === 'dashboard') renderDashboard();
 };
 
 function togglePlanDone(id){
@@ -7302,6 +7361,7 @@ function vpRunAutomations(){
   });
   if(vpRunAutoClose(todayIso)) changed = true;
   try{ vpCheckDueTasks(); }catch(e){}
+  try{ if(typeof autoDeleteExpired === 'function') autoDeleteExpired(false); }catch(e){}
   if(changed){
     Store.set('plan', State.plan);
     Store.set('automations', State.automations);
@@ -8306,9 +8366,14 @@ applyMmView = function(){
 
 const vpOrigSwitch = switchView;
 switchView = function(v){
+  if(v === 'plan' || v === 'tasks'){
+    try{ if(typeof autoDeleteExpired === 'function') autoDeleteExpired(false); }catch(e){}
+  }
   vpOrigSwitch(v);
   if(v !== 'mindmap' && v !== 'sticky' && vpUI.zen){ vpUI.zen = false; vpApplyUI(); }
-  if(v === 'plan'){ vpRunAutomations(); }
+  if(v === 'plan'){
+    try{ vpRunAutomations(); }catch(e){}
+  }
 };
 
 const vpOrigReset = resetAllData;
@@ -8792,14 +8857,107 @@ const vpOrigRenderPlanView = renderPlanView;
 renderPlanView = function(){
   vpOrigRenderPlanView();
   vpRenderBulkBar();
-  const qa = $('#planQuickAdd');
-  if(qa) qa.addEventListener('keydown', (e)=>{
-    if(e.key === 'Enter'){ e.preventDefault(); vpQuickAddCreate(qa.value, e.shiftKey); qa.value=''; }
-  });
 };
+
+// Global delegation for planQuickAdd enter key to avoid listener accumulation
+document.addEventListener('keydown', (e)=>{
+  if(e.target && e.target.id === 'planQuickAdd' && e.key === 'Enter'){
+    e.preventDefault();
+    vpQuickAddCreate(e.target.value, e.shiftKey);
+    e.target.value = '';
+  }
+});
+
+/* --- Kanban HTML5 Drag-and-Drop Implementation --- */
+let _draggedPlanId = null;
+let _planJustDropped = false;
+
+document.addEventListener('dragstart', (e) => {
+  const card = e.target.closest('.plan-card');
+  if(!card) return;
+  if(e.target.closest('button, input, select, textarea, .prio-tag, .pc-check-btn, .pc-complete-btn')){
+    e.preventDefault();
+    return;
+  }
+  _draggedPlanId = card.dataset.id;
+  window._planIsDragging = true;
+  card.classList.add('is-dragging');
+  if(e.dataTransfer){
+    e.dataTransfer.setData('text/plain', card.dataset.id);
+    e.dataTransfer.effectAllowed = 'move';
+  }
+});
+
+document.addEventListener('dragend', (e) => {
+  const card = e.target.closest('.plan-card') || document.querySelector('.plan-card.is-dragging');
+  if(card) card.classList.remove('is-dragging');
+  document.querySelectorAll('.plan-col.drag-over').forEach(c => c.classList.remove('drag-over'));
+  _draggedPlanId = null;
+  setTimeout(() => { window._planIsDragging = false; }, 120);
+});
+
+document.addEventListener('dragover', (e) => {
+  const col = e.target.closest('.plan-col');
+  if(!col || !_draggedPlanId) return;
+  e.preventDefault();
+  if(e.dataTransfer) e.dataTransfer.dropEffect = 'move';
+  document.querySelectorAll('.plan-col.drag-over').forEach(c => {
+    if(c !== col) c.classList.remove('drag-over');
+  });
+  col.classList.add('drag-over');
+});
+
+document.addEventListener('dragleave', (e) => {
+  const col = e.target.closest('.plan-col');
+  if(col && !col.contains(e.relatedTarget)){
+    col.classList.remove('drag-over');
+  }
+});
+
+document.addEventListener('drop', (e) => {
+  const col = e.target.closest('.plan-col');
+  if(!col) return;
+  e.preventDefault();
+  col.classList.remove('drag-over');
+  const cardId = (e.dataTransfer && e.dataTransfer.getData('text/plain')) || _draggedPlanId;
+  if(!cardId) return;
+  const targetStatus = col.dataset.status;
+  if(!targetStatus) return;
+
+  const p = vpEnsureItem((State.plan||[]).find(x => x.id === cardId));
+  if(!p) return;
+  if(p.status === targetStatus) return;
+
+  _planJustDropped = true;
+  setTimeout(() => { _planJustDropped = false; }, 250);
+
+  const fromCol = PLAN_STATUSES.find(s => s.k === p.status);
+  const toCol = PLAN_STATUSES.find(s => s.k === targetStatus);
+  p.status = targetStatus;
+  vpLog(p, 'status', `Dragged from ${fromCol ? fromCol.l : p.status} to ${toCol ? toCol.l : targetStatus}.`);
+  if(vpIsStale(p)) p.labels = (p.labels||[]).filter(l=>l!=='stale');
+
+  if(p.status === 'done'){
+    p.prevStatus = fromCol ? fromCol.k : 'active';
+    p.resolution = 'done';
+    p.completedAt = new Date().toISOString();
+    vpOnItemCompleted(p);
+    toast('Moved to Done! 🎉');
+    setTimeout(() => sendAppNotification('🎉 Plan Item Completed', p.title, 'tasks'), 10);
+  } else {
+    p.resolution = null;
+    p.completedAt = null;
+    toast(`Moved to ${toCol ? toCol.l : targetStatus}.`);
+  }
+
+  Store.set('plan', State.plan);
+  renderPlanView();
+  if(typeof renderDashboard === 'function' && currentView === 'dashboard') renderDashboard();
+});
 
 /* --- action wiring (final assignment wins over earlier files) --- */
 Actions['plan-edit'] = function(el){
+  if(window._planIsDragging || _planJustDropped) return;
   if(vpBulkMode){ vpToggleBulkItem(el.dataset.id); return; }
   openPlanModal(el.dataset.id);
 };
@@ -9349,11 +9507,21 @@ function npRestoreSelection(){
   const editorBody = document.getElementById('npEditorBody');
   if(!editorBody) return;
   editorBody.focus();
+  const sel = window.getSelection();
   if(npSavedSelection){
     try {
-      const sel = window.getSelection();
       sel.removeAllRanges();
       sel.addRange(npSavedSelection);
+      return;
+    } catch(e){}
+  }
+  if(!sel || sel.rangeCount === 0 || !editorBody.contains(sel.anchorNode)){
+    try {
+      const range = document.createRange();
+      range.selectNodeContents(editorBody);
+      range.collapse(false);
+      sel.removeAllRanges();
+      sel.addRange(range);
     } catch(e){}
   }
 }
@@ -9456,24 +9624,34 @@ function npScaleFontSize(direction){
   npChangeFontSize(newPx + 'px');
 }
 
-/* --- Intelligent Paste Sanitizer & Normalizer (Microsoft Notepad Style) --- */
+/* --- Intelligent Paste Sanitizer & Normalizer --- */
 function npSanitizeAndFormatPastedContent(e){
-  // Check for image files on clipboard first
-  if(e.clipboardData && e.clipboardData.items){
-    for(let i = 0; i < e.clipboardData.items.length; i++){
-      const item = e.clipboardData.items[i];
-      if(item.type.indexOf('image') !== -1){
-        e.preventDefault();
+  const transfer = e.clipboardData || e.dataTransfer;
+  if(!transfer) return;
+
+  // 1. Check for standalone image files on clipboard (e.g. screenshot or copied image file)
+  if(transfer.items){
+    for(let i = 0; i < transfer.items.length; i++){
+      const item = transfer.items[i];
+      if(item.type && item.type.indexOf('image') !== -1){
         const file = item.getAsFile();
-        if(file) npHandleImageFile(file);
-        return;
+        if(file){
+          const htmlData = transfer.getData ? transfer.getData('text/html') : '';
+          const textData = transfer.getData ? transfer.getData('text/plain') : '';
+          // If only an image was pasted (no complex article text alongside)
+          if(!htmlData && (!textData || textData.trim().length < 2)){
+            e.preventDefault();
+            npHandleImageFile(file);
+            return;
+          }
+        }
       }
     }
   }
 
   e.preventDefault();
-  const htmlData = e.clipboardData ? e.clipboardData.getData('text/html') : '';
-  const textData = e.clipboardData ? e.clipboardData.getData('text/plain') : '';
+  const htmlData = transfer.getData ? transfer.getData('text/html') : '';
+  const textData = transfer.getData ? transfer.getData('text/plain') : '';
 
   let cleanHtml = '';
 
@@ -9483,9 +9661,75 @@ function npSanitizeAndFormatPastedContent(e){
       const doc = parser.parseFromString(htmlData, 'text/html');
 
       // Remove non-content and harmful tags
-      doc.querySelectorAll('script, style, meta, link, noscript, xml, title, svg').forEach(el => el.remove());
+      doc.querySelectorAll('script, style, meta, link, noscript, xml, title, svg, iframe, object, embed, applet, form, input, button').forEach(el => el.remove());
 
-      // Clean all elements: strip hardcoded font-family, font-size, color, background, line-height
+      // 2. Process all <img> tags in pasted HTML: wrap into interactive Vantage responsive component
+      const images = Array.from(doc.body.querySelectorAll('img'));
+      images.forEach(img => {
+        let src = (img.getAttribute('src') || '').trim();
+        if(!src || src.startsWith('javascript:') || src === '#' || src.includes('spacer.gif') || src.includes('blank.gif')){
+          img.remove();
+          return;
+        }
+
+        const alt = img.getAttribute('alt') || 'Pasted picture';
+
+        const wrap = doc.createElement('div');
+        wrap.className = 'np-img-wrap size-md';
+        wrap.setAttribute('contenteditable', 'false');
+        wrap.innerHTML = `
+          <img src="${esc(src)}" class="np-img" alt="${esc(alt)}" loading="lazy">
+          <div class="np-img-bar">
+            <button type="button" data-action="np-img-size" data-size="sm">Small</button>
+            <button type="button" data-action="np-img-size" data-size="md">Medium</button>
+            <button type="button" data-action="np-img-size" data-size="full">Full Width</button>
+            <button type="button" class="del" data-action="np-img-del">🗑️ Remove</button>
+          </div>
+        `;
+
+        const pParent = img.closest('p, div, li, td, blockquote');
+        if(pParent && pParent.parentNode && pParent.textContent.trim() === ''){
+          pParent.parentNode.replaceChild(wrap, pParent);
+        } else if(img.parentNode){
+          img.parentNode.replaceChild(wrap, img);
+        }
+      });
+
+      // 3. Clean up tables
+      doc.body.querySelectorAll('table').forEach(table => {
+        table.removeAttribute('style');
+        table.removeAttribute('width');
+        table.removeAttribute('border');
+        table.removeAttribute('cellspacing');
+        table.removeAttribute('cellpadding');
+        table.querySelectorAll('tr, th, td').forEach(cell => {
+          cell.removeAttribute('style');
+          cell.removeAttribute('width');
+          cell.removeAttribute('height');
+          cell.removeAttribute('class');
+        });
+        if(!table.parentNode || !table.parentNode.classList || !table.parentNode.classList.contains('np-table-wrap')){
+          const wrap = doc.createElement('div');
+          wrap.className = 'np-table-wrap';
+          wrap.style.overflowX = 'auto';
+          wrap.style.margin = '10px 0';
+          if(table.parentNode){
+            table.parentNode.insertBefore(wrap, table);
+            wrap.appendChild(table);
+          }
+        }
+      });
+
+      // 4. Clean up lists and remove external bullet artifacts
+      doc.body.querySelectorAll('li').forEach(li => {
+        li.removeAttribute('style');
+        li.removeAttribute('class');
+        if(li.firstChild && li.firstChild.nodeType === 3){
+          li.firstChild.nodeValue = li.firstChild.nodeValue.replace(/^[\s•·\-\*▪▫◦]+\s*/, '');
+        }
+      });
+
+      // 5. Clean all elements: strip hardcoded font-family, font-size, color, background, line-height
       const allElements = doc.body.querySelectorAll('*');
       allElements.forEach(el => {
         el.style.fontFamily = '';
@@ -9505,9 +9749,12 @@ function npSanitizeAndFormatPastedContent(e){
           el.removeAttribute('color');
         }
 
-        // Strip foreign class attributes (like Microsoft Word / Docs / external web classes)
+        // Keep only internal Vantage classes
         if(el.hasAttribute('class')){
-          el.removeAttribute('class');
+          const cls = el.getAttribute('class') || '';
+          if(!cls.includes('np-img') && !cls.includes('np-att') && !cls.includes('np-table') && !cls.includes('np-code')){
+            el.removeAttribute('class');
+          }
         }
 
         if(el.getAttribute('style') === '' || !el.getAttribute('style')){
@@ -9515,7 +9762,7 @@ function npSanitizeAndFormatPastedContent(e){
         }
       });
 
-      // Unwrap spans that have no attributes
+      // 6. Unwrap redundant empty spans
       doc.body.querySelectorAll('span').forEach(span => {
         if(!span.hasAttributes()){
           const parent = span.parentNode;
@@ -9532,20 +9779,51 @@ function npSanitizeAndFormatPastedContent(e){
     }
   }
 
-  // Fallback to textData or if cleanHtml is empty: format neatly like Microsoft Notepad
+  // 7. Fallback to textData or format plain text smartly
   if(!cleanHtml && textData){
-    const paragraphs = textData.split(/\r?\n\r?\n+/);
-    cleanHtml = paragraphs.map(p => {
+    const rawParagraphs = textData.split(/\r?\n\r?\n+/);
+    cleanHtml = rawParagraphs.map(p => {
       const trimmed = p.trim();
       if(!trimmed) return '';
+      // Check if it's a markdown heading
+      const hMatch = trimmed.match(/^(#{1,3})\s+(.+)$/);
+      if(hMatch){
+        const level = hMatch[1].length;
+        return `<h${level}>${esc(hMatch[2])}</h${level}>`;
+      }
+      // Check if it's a list
+      const lines = trimmed.split(/\r?\n/);
+      const isList = lines.length > 1 && lines.every(l => /^[\s]*([*\-•]|\d+\.)\s+/.test(l));
+      if(isList){
+        const items = lines.map(l => `<li>${esc(l.replace(/^[\s]*([*\-•]|\d+\.)\s+/, ''))}</li>`).join('');
+        return `<ul>${items}</ul>`;
+      }
+      // Check if it's a URL
+      if(/^https?:\/\/[^\s]+$/i.test(trimmed)){
+        return `<p><a href="${esc(trimmed)}" target="_blank" rel="noopener noreferrer">${esc(trimmed)}</a></p>`;
+      }
       const withBr = esc(trimmed).replace(/\r?\n/g, '<br>');
       return `<p>${withBr}</p>`;
     }).filter(Boolean).join('');
   }
 
   if(cleanHtml){
-    document.execCommand('insertHTML', false, cleanHtml);
+    npRestoreSelection();
+    const editorBody = document.getElementById('npEditorBody');
+    let ok = false;
+    try {
+      ok = document.execCommand('insertHTML', false, cleanHtml);
+    } catch(e){}
+
+    if(!ok && editorBody){
+      const temp = document.createElement('div');
+      temp.innerHTML = cleanHtml;
+      while(temp.firstChild){
+        editorBody.appendChild(temp.firstChild);
+      }
+    }
     npScheduleSave();
+    toast('✓ Pasted & neatly arranged');
   }
 }
 
@@ -9744,26 +10022,84 @@ function npFormatFileSize(bytes){
   return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
 }
 
-function npHandleImageFile(file){
-  if(!file || !file.type.startsWith('image/')) return;
-  const reader = new FileReader();
-  reader.onload = (e) => {
-    const dataUrl = e.target.result;
-    npRestoreSelection();
-    const html = `<div class="np-img-wrap size-md" contenteditable="false">
-      <img src="${dataUrl}" class="np-img" alt="Attached picture">
-      <div class="np-img-bar">
-        <button type="button" data-action="np-img-size" data-size="sm">Small</button>
-        <button type="button" data-action="np-img-size" data-size="md">Medium</button>
-        <button type="button" data-action="np-img-size" data-size="full">Full Width</button>
-        <button type="button" class="del" data-action="np-img-del">🗑️ Remove</button>
-      </div>
-    </div><p><br></p>`;
-    document.execCommand('insertHTML', false, html);
-    npScheduleSave();
-    toast('✓ Picture attached');
-  };
-  reader.readAsDataURL(file);
+function npOptimizeImage(file, maxWidth = 1600, quality = 0.85){
+  return new Promise((resolve) => {
+    if(!file || !file.type || !file.type.startsWith('image/')){
+      resolve(null);
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const rawDataUrl = e.target.result;
+      const img = new Image();
+      img.onload = () => {
+        let w = img.width;
+        let h = img.height;
+        // Keep as-is if already reasonably sized (< 1400px and < 400KB)
+        if(w <= maxWidth && file.size < 400 * 1024){
+          resolve(rawDataUrl);
+          return;
+        }
+        if(w > maxWidth){
+          h = Math.round((h * maxWidth) / w);
+          w = maxWidth;
+        }
+        try {
+          const canvas = document.createElement('canvas');
+          canvas.width = w;
+          canvas.height = h;
+          const ctx = canvas.getContext('2d');
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = 'high';
+          ctx.drawImage(img, 0, 0, w, h);
+          const mime = file.type === 'image/png' && file.size < 500 * 1024 ? 'image/png' : 'image/jpeg';
+          const optUrl = canvas.toDataURL(mime, quality);
+          resolve(optUrl);
+        } catch(err){
+          resolve(rawDataUrl);
+        }
+      };
+      img.onerror = () => resolve(rawDataUrl);
+      img.src = rawDataUrl;
+    };
+    reader.onerror = () => resolve(null);
+    reader.readAsDataURL(file);
+  });
+}
+
+async function npHandleImageFile(file){
+  if(!file || !file.type || !file.type.startsWith('image/')) return;
+  toast('Optimizing picture...');
+  const dataUrl = await npOptimizeImage(file);
+  if(!dataUrl) return;
+
+  npRestoreSelection();
+  const editorBody = document.getElementById('npEditorBody');
+  const html = `<div class="np-img-wrap size-md" contenteditable="false">
+    <img src="${dataUrl}" class="np-img" alt="Attached picture" loading="lazy">
+    <div class="np-img-bar">
+      <button type="button" data-action="np-img-size" data-size="sm">Small</button>
+      <button type="button" data-action="np-img-size" data-size="md">Medium</button>
+      <button type="button" data-action="np-img-size" data-size="full">Full Width</button>
+      <button type="button" class="del" data-action="np-img-del">🗑️ Remove</button>
+    </div>
+  </div><p><br></p>`;
+
+  let ok = false;
+  try {
+    ok = document.execCommand('insertHTML', false, html);
+  } catch(e){}
+
+  if(!ok && editorBody){
+    const temp = document.createElement('div');
+    temp.innerHTML = html;
+    while(temp.firstChild){
+      editorBody.appendChild(temp.firstChild);
+    }
+  }
+
+  npScheduleSave();
+  toast('✓ Picture attached & arranged');
 }
 
 function npHandleDocFile(file){
@@ -10541,12 +10877,14 @@ if(window.visualViewport && !window.visualViewport._caretAttached){
       if(e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length > 0){
         for(let i = 0; i < e.dataTransfer.files.length; i++){
           const file = e.dataTransfer.files[i];
-          if(file.type.startsWith('image/')){
+          if(file.type && file.type.startsWith('image/')){
             npHandleImageFile(file);
           } else {
             npHandleDocFile(file);
           }
         }
+      } else if(e.dataTransfer){
+        npSanitizeAndFormatPastedContent(e);
       }
     });
 
@@ -11246,8 +11584,9 @@ document.addEventListener('contextmenu', (e) => {
 /* ================= AUTO-DELETE (Tasks & Plans) ================= */
 function autoDeleteExpired(manual = false){
   const profile = State.profile || {};
-  const taskDays = parseInt(profile.autoDeleteTaskDays) || 0;
-  const planDays = parseInt(profile.autoDeletePlanDays) || 0;
+  // If not explicitly configured, default to 30 days (recommended)
+  const taskDays = profile.autoDeleteTaskDays !== undefined ? parseInt(profile.autoDeleteTaskDays) : 30;
+  const planDays = profile.autoDeletePlanDays !== undefined ? parseInt(profile.autoDeletePlanDays) : 30;
   const now = Date.now();
   let tasksDeleted = 0;
   let plansDeleted = 0;
@@ -11255,7 +11594,8 @@ function autoDeleteExpired(manual = false){
   if(!Array.isArray(State.tasks)) State.tasks = [];
   if(!Array.isArray(State.plan)) State.plan = [];
 
-  if(taskDays > 0 || manual){
+  // taskDays > 0 executes automated retention. (taskDays === 0 means explicitly set to 'Never')
+  if(taskDays > 0 || (manual && taskDays === 0)){
     const daysLimit = taskDays > 0 ? taskDays : 30;
     const before = State.tasks.length;
     State.tasks = State.tasks.filter(t => {
@@ -11270,7 +11610,8 @@ function autoDeleteExpired(manual = false){
     }
   }
 
-  if(planDays > 0 || manual){
+  // planDays > 0 executes automated retention. (planDays === 0 means explicitly set to 'Never')
+  if(planDays > 0 || (manual && planDays === 0)){
     const daysLimit = planDays > 0 ? planDays : 30;
     const before = State.plan.length;
     State.plan = State.plan.filter(p => {
@@ -11287,7 +11628,7 @@ function autoDeleteExpired(manual = false){
 
   const total = tasksDeleted + plansDeleted;
   if(total > 0){
-    const msg = `Auto-cleaned ${tasksDeleted ? tasksDeleted + ' task(s)' : ''}${tasksDeleted && plansDeleted ? ' and ' : ''}${plansDeleted ? plansDeleted + ' plan item(s)' : ''}.`;
+    const msg = `Auto-cleaned ${tasksDeleted ? tasksDeleted + ' task(s)' : ''}${tasksDeleted && plansDeleted ? ' and ' : ''}${plansDeleted ? plansDeleted + ' plan item(s)' : ''} older than retention threshold.`;
     toast(msg);
     sendAppNotification('🧹 Cleanup Complete', msg, 'tasks');
   } else if(manual){
@@ -11421,7 +11762,9 @@ async function init(){
     Store.get('tasks', []), Store.get('plan', []), Store.get('mindmaps', []), Store.get('stats', State.stats),
     Store.get('notepad', { notebooks: [], notes: [], trash: [] })
   ]);
-  State.profile = profile;
+  State.profile = profile || { theme: 'dark', autoDeleteTaskDays: 30, autoDeletePlanDays: 30 };
+  if(State.profile.autoDeleteTaskDays === undefined) State.profile.autoDeleteTaskDays = 30;
+  if(State.profile.autoDeletePlanDays === undefined) State.profile.autoDeletePlanDays = 30;
   State.journal = Array.isArray(journal) ? journal : [];
   State.sticky = Array.isArray(sticky) ? sticky : [];
   State.tasks = Array.isArray(tasks) ? tasks : [];
