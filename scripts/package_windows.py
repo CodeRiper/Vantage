@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Packages all Windows distributions for Vantage v1.2.7:
-- Setup Installer (.exe): Vantage-Setup-v1.2.7.exe
+Packages all Windows distributions for Vantage v1.2.8:
+- Setup Installer (.exe): Vantage-Setup-v1.2.8.exe
 - Portable Executable (.exe): Vantage-Portable.exe
 - Zip archive (.zip): Vantage-Windows-x64.zip
 """
@@ -22,7 +22,7 @@ def package_windows():
     os.makedirs(dist_win, exist_ok=True)
 
     print("=" * 60)
-    print("  PACKAGING VANTAGE WINDOWS RELEASES (v1.2.7)")
+    print("  PACKAGING VANTAGE WINDOWS RELEASES (v1.2.8)")
     print("=" * 60)
 
     # 1. Compile NSIS Setup Installer
@@ -33,8 +33,8 @@ def package_windows():
         if res.returncode != 0:
             print("[ERROR] Failed to compile VantageSetup.nsi")
             sys.exit(1)
-        setup_src = os.path.join(root_dir, "Vantage-Setup-v1.2.7.exe")
-        setup_dest = os.path.join(dist_win, "Vantage-Setup-v1.2.7.exe")
+        setup_src = os.path.join(root_dir, "Vantage-Setup-v1.2.8.exe")
+        setup_dest = os.path.join(dist_win, "Vantage-Setup-v1.2.8.exe")
         if os.path.exists(setup_src):
             shutil.copy2(setup_src, setup_dest)
             print(f"  -> Built and synced {setup_dest} ({os.path.getsize(setup_dest)/(1024*1024):.1f} MB)")

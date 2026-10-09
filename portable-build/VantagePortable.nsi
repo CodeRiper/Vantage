@@ -13,7 +13,7 @@
 Name        "Vantage"
 OutFile     "..\Vantage-Portable.exe"
 Caption     "Vantage"
-BrandingText "Vantage 1.2.7"
+BrandingText "Vantage 1.2.8"
 
 ; Use best compression — makes a big difference on 300 MB
 SetCompressor /SOLID lzma
@@ -35,11 +35,11 @@ AutoCloseWindow true
 Icon "..\resources\app\icon.ico"
 
 ; --------------- version info embedded in the exe ---------------
-VIProductVersion "1.2.7.0"
+VIProductVersion "1.2.8.0"
 VIAddVersionKey "ProductName"     "Vantage"
-VIAddVersionKey "ProductVersion"  "1.2.7"
+VIAddVersionKey "ProductVersion"  "1.2.8"
 VIAddVersionKey "FileDescription" "Vantage — Observation, Investigation & Planning"
-VIAddVersionKey "FileVersion"     "1.2.7.0"
+VIAddVersionKey "FileVersion"     "1.2.8.0"
 VIAddVersionKey "CompanyName"     "Akash"
 VIAddVersionKey "LegalCopyright"  "© 2026 Akash"
 
@@ -54,7 +54,7 @@ VIAddVersionKey "LegalCopyright"  "© 2026 Akash"
 
 ; --------------- marker file to detect existing extraction ---------------
 !define MARKER "$INSTDIR\.vantage-version"
-!define APP_VERSION "1.2.7"
+!define APP_VERSION "1.2.8"
 
 ; ============================================================================
 ; .onInit — check if already extracted; if so, skip straight to launch

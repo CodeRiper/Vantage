@@ -146,7 +146,7 @@ def main():
     unaligned_apk = os.path.join(build_dir, "Vantage-unaligned.apk")
     shutil.copy2(base_apk, unaligned_apk)
 
-    final_apk = os.path.join(dist_dir, "Vantage-v1.2.7.apk")
+    final_apk = os.path.join(dist_dir, "Vantage-v1.2.8.apk")
     if os.path.exists(final_apk):
         os.remove(final_apk)
 

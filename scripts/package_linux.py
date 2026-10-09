@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Packages all Linux distributions for Vantage v1.2.7:
-- Debian Package (.deb): vantage_1.2.7_amd64.deb
+Packages all Linux distributions for Vantage v1.2.8:
+- Debian Package (.deb): vantage_1.2.8_amd64.deb
 - Tarball (.tar.gz): Vantage-Linux-x64.tar.gz
 - Zip archive (.zip): Vantage-Linux-x64.zip
 """
@@ -22,7 +22,7 @@ def package_all():
     src_dir = os.path.join(dist_linux, "Vantage-linux-x64")
     
     print("=" * 60)
-    print("  PACKAGING VANTAGE LINUX RELEASES (v1.2.7)")
+    print("  PACKAGING VANTAGE LINUX RELEASES (v1.2.8)")
     print("=" * 60)
     
     # Ensure all web assets are synced
@@ -35,8 +35,8 @@ def package_all():
     print(f"Synced web assets to {app_dest}")
     
     # 1. Build .deb package
-    deb_out = os.path.join(dist_linux, "vantage_1.2.7_amd64.deb")
-    build_deb(src_dir, deb_out, version="1.2.7")
+    deb_out = os.path.join(dist_linux, "vantage_1.2.8_amd64.deb")
+    build_deb(src_dir, deb_out, version="1.2.8")
     
     # 2. Build .tar.gz archive
     tar_out = os.path.join(dist_linux, "Vantage-Linux-x64.tar.gz")

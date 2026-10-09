@@ -6,9 +6,9 @@
 
 ; --------------- Basic Metadata ---------------
 Name "Vantage"
-OutFile "..\Vantage-Setup-v1.2.7.exe"
+OutFile "..\Vantage-Setup-v1.2.8.exe"
 Caption "Vantage Setup"
-BrandingText "Vantage 1.2.7"
+BrandingText "Vantage 1.2.8"
 
 ; Solid LZMA compression for compact installer size
 SetCompressor /SOLID lzma
@@ -21,11 +21,11 @@ InstallDirRegKey HKCU "Software\Vantage" "InstallDir"
 RequestExecutionLevel user
 
 ; --------------- Version Information ---------------
-VIProductVersion "1.2.7.0"
+VIProductVersion "1.2.8.0"
 VIAddVersionKey "ProductName"     "Vantage"
-VIAddVersionKey "ProductVersion"  "1.2.7"
+VIAddVersionKey "ProductVersion"  "1.2.8"
 VIAddVersionKey "FileDescription" "Vantage — Observation, Investigation & Planning Trainer"
-VIAddVersionKey "FileVersion"     "1.2.7.0"
+VIAddVersionKey "FileVersion"     "1.2.8.0"
 VIAddVersionKey "CompanyName"     "Akash"
 VIAddVersionKey "LegalCopyright"  "© 2026 Akash"
 
@@ -103,7 +103,7 @@ Section "MainSection" SEC01
   ; Register in Windows Registry
   WriteRegStr HKCU "Software\Vantage" "InstallDir" "$INSTDIR"
   WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Vantage" "DisplayName" "Vantage"
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Vantage" "DisplayVersion" "1.2.7"
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Vantage" "DisplayVersion" "1.2.8"
   WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Vantage" "Publisher" "Akash"
   WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Vantage" "DisplayIcon" "$INSTDIR\resources\app\icon.ico,0"
   WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Vantage" "UninstallString" '"$INSTDIR\uninstall.exe"'

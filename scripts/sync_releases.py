@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """
-Syncs newly built distribution binaries into releases-v1.2.7
+Syncs newly built distribution binaries into releases-v1.2.8
 and generates verified SHA256 checksums.
 """
 
 import os
 import shutil
 import hashlib
+
+VERSION = "1.2.8"
 
 def sha256_file(filepath):
     h = hashlib.sha256()
@@ -20,7 +22,7 @@ def main():
     dist_win = os.path.join(root_dir, "dist-windows")
     dist_linux = os.path.join(root_dir, "dist-linux")
     dist_android = os.path.join(root_dir, "dist-android")
-    rel_dir = os.path.join(root_dir, "releases-v1.2.7")
+    rel_dir = os.path.join(root_dir, f"releases-v{VERSION}")
 
     win_dir = os.path.join(rel_dir, "Windows")
     lin_dir = os.path.join(rel_dir, "Linux")
@@ -31,15 +33,15 @@ def main():
         os.makedirs(d, exist_ok=True)
 
     print("=" * 60)
-    print("  SYNCING FRESH BUILDS TO RELEASES-V1.2.7")
+    print(f"  SYNCING FRESH BUILDS TO RELEASES-V{VERSION}")
     print("=" * 60)
 
     # 1. Sync Windows
     print("\n[1/4] Syncing Windows packages...")
     win_files = [
-        ("Vantage-Setup-v1.2.7.exe", "Vantage-Setup-v1.2.7.exe"),
-        ("Vantage-Portable.exe", "Vantage-Portable-v1.2.7.exe"),
-        ("Vantage-Windows-x64.zip", "Vantage-Windows-v1.2.7-x64.zip")
+        (f"Vantage-Setup-v{VERSION}.exe", f"Vantage-Setup-v{VERSION}.exe"),
+        ("Vantage-Portable.exe", f"Vantage-Portable-v{VERSION}.exe"),
+        ("Vantage-Windows-x64.zip", f"Vantage-Windows-v{VERSION}-x64.zip")
     ]
     for src_name, dst_name in win_files:
         src = os.path.join(dist_win, src_name)
@@ -52,9 +54,9 @@ def main():
     # 2. Sync Linux
     print("\n[2/4] Syncing Linux packages...")
     lin_files = [
-        ("vantage_1.2.7_amd64.deb", "vantage_1.2.7_amd64.deb"),
-        ("Vantage-Linux-x64.tar.gz", "Vantage-Linux-v1.2.7-x64.tar.gz"),
-        ("Vantage-Linux-x64.zip", "Vantage-Linux-v1.2.7-x64.zip")
+        (f"vantage_{VERSION}_amd64.deb", f"vantage_{VERSION}_amd64.deb"),
+        ("Vantage-Linux-x64.tar.gz", f"Vantage-Linux-v{VERSION}-x64.tar.gz"),
+        ("Vantage-Linux-x64.zip", f"Vantage-Linux-v{VERSION}-x64.zip")
     ]
     for src_name, dst_name in lin_files:
         src = os.path.join(dist_linux, src_name)
@@ -67,8 +69,8 @@ def main():
     # 3. Sync Android
     print("\n[3/4] Syncing Android packages...")
     and_files = [
-        ("Vantage-v1.2.7.apk", "Vantage-v1.2.7.apk"),
-        ("Vantage-v1.2.7.apk.idsig", "Vantage-v1.2.7.apk.idsig")
+        (f"Vantage-v{VERSION}.apk", f"Vantage-v{VERSION}.apk"),
+        (f"Vantage-v{VERSION}.apk.idsig", f"Vantage-v{VERSION}.apk.idsig")
     ]
     for src_name, dst_name in and_files:
         src = os.path.join(dist_android, src_name)
@@ -82,14 +84,14 @@ def main():
     print("\n[4/4] Generating verified SHA-256 Checksums...")
     lines = []
     items_to_check = [
-        ("Windows/Vantage-Portable-v1.2.7.exe", os.path.join(win_dir, "Vantage-Portable-v1.2.7.exe")),
-        ("Windows/Vantage-Setup-v1.2.7.exe", os.path.join(win_dir, "Vantage-Setup-v1.2.7.exe")),
-        ("Windows/Vantage-Windows-v1.2.7-x64.zip", os.path.join(win_dir, "Vantage-Windows-v1.2.7-x64.zip")),
-        ("Linux/Vantage-Linux-v1.2.7-x64.tar.gz", os.path.join(lin_dir, "Vantage-Linux-v1.2.7-x64.tar.gz")),
-        ("Linux/Vantage-Linux-v1.2.7-x64.zip", os.path.join(lin_dir, "Vantage-Linux-v1.2.7-x64.zip")),
-        ("Linux/vantage_1.2.7_amd64.deb", os.path.join(lin_dir, "vantage_1.2.7_amd64.deb")),
-        ("Android/Vantage-v1.2.7.apk", os.path.join(and_dir, "Vantage-v1.2.7.apk")),
-        ("Android/Vantage-v1.2.7.apk.idsig", os.path.join(and_dir, "Vantage-v1.2.7.apk.idsig"))
+        (f"Windows/Vantage-Portable-v{VERSION}.exe", os.path.join(win_dir, f"Vantage-Portable-v{VERSION}.exe")),
+        (f"Windows/Vantage-Setup-v{VERSION}.exe", os.path.join(win_dir, f"Vantage-Setup-v{VERSION}.exe")),
+        (f"Windows/Vantage-Windows-v{VERSION}-x64.zip", os.path.join(win_dir, f"Vantage-Windows-v{VERSION}-x64.zip")),
+        (f"Linux/Vantage-Linux-v{VERSION}-x64.tar.gz", os.path.join(lin_dir, f"Vantage-Linux-v{VERSION}-x64.tar.gz")),
+        (f"Linux/Vantage-Linux-v{VERSION}-x64.zip", os.path.join(lin_dir, f"Vantage-Linux-v{VERSION}-x64.zip")),
+        (f"Linux/vantage_{VERSION}_amd64.deb", os.path.join(lin_dir, f"vantage_{VERSION}_amd64.deb")),
+        (f"Android/Vantage-v{VERSION}.apk", os.path.join(and_dir, f"Vantage-v{VERSION}.apk")),
+        (f"Android/Vantage-v{VERSION}.apk.idsig", os.path.join(and_dir, f"Vantage-v{VERSION}.apk.idsig"))
     ]
 
     for rel_path, abs_path in items_to_check:

@@ -19,7 +19,7 @@ def create_ar_entry(name, data, mode=0o644, mtime=None):
     padded_data = data if len(data) % 2 == 0 else data + b'\n'
     return header + padded_data
 
-def build_deb(app_dir, output_deb, version="1.2.7"):
+def build_deb(app_dir, output_deb, version="1.2.8"):
     print(f"Building Debian package {output_deb} from {app_dir}...")
     
     # 1. Calculate installed size in KB
@@ -190,5 +190,5 @@ Keywords=vantage;mindmap;notes;investigation;planning;
 
 if __name__ == '__main__':
     src = os.path.join("dist-linux", "Vantage-linux-x64")
-    out = os.path.join("dist-linux", "vantage_1.2.7_amd64.deb")
-    build_deb(src, out, version="1.2.7")
+    out = os.path.join("dist-linux", "vantage_1.2.8_amd64.deb")
+    build_deb(src, out, version="1.2.8")
